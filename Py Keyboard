@@ -1,0 +1,40 @@
+import pyautogui
+import time
+import webbrowser
+
+# SAFETY: Move mouse to top-left to abort if needed
+pyautogui.FAILSAFE = True
+
+# STEP 1: Open browser with Google
+webbrowser.open("https://www.google.com")
+time.sleep(5)
+
+# STEP 2: Open new tab
+pyautogui.hotkey('ctrl', 't')
+time.sleep(1)
+
+# STEP 3: Google Search
+query = "latest Python automation tools"
+pyautogui.typewrite(query, interval=0.05)
+pyautogui.press('enter')
+time.sleep(5)
+
+# STEP 4: Open another new tab
+pyautogui.hotkey('ctrl', 't')
+time.sleep(1)
+
+# STEP 5: Navigate to YouTube
+pyautogui.typewrite('www.youtube.com', interval=0.05)
+pyautogui.press('enter')
+time.sleep(7)  # Slightly longer wait for YouTube to fully load
+
+# STEP 6: Click on YouTube search bar using your provided coordinates
+pyautogui.click(610, 181)
+time.sleep(1)
+
+# STEP 7: Type search query and search
+yt_query = "PyAutoGUI tutorials"
+pyautogui.typewrite(yt_query, interval=0.05)
+pyautogui.press('enter')
+
+print("✅ Automated Google and YouTube search completed successfully.")
